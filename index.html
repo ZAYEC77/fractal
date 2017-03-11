@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #010101;
+        position: relative;
+    }
+    
+    #canvas {
+        background: #090909;
+        image-rendering: optimizeSpeed;
+        /* Older versions of FF          */
+        image-rendering: -moz-crisp-edges;
+        /* FF 6.0+                       */
+        image-rendering: -webkit-optimize-contrast;
+        /* Safari                        */
+        image-rendering: -o-crisp-edges;
+        /* OS X & Windows Opera (12.02+) */
+        image-rendering: pixelated;
+        /* Awesome future-browsers       */
+        -ms-interpolation-mode: nearest-neighbor;
+    }
+    
+    #form {
+        position: absolute;
+        background: #454545;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        margin: 5px;
+    }
+    
+    #form label {
+        min-width: 100px;
+        display: inline-block;
+        color: #fff;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        text-transform: uppercase;
+    }
+    
+    .notice {
+        font-size: 10px;
+        color: #fff;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas">
+    </canvas>
+    <form action="" id="form">
+        <p>
+            <label for="">n: </label>
+            <input type="number" id="n" value="2">
+        </p>
+        <p>
+            <label for="">size: </label>
+            <input type="number" id="size" value="2">
+        </p>
+        <p>
+            <label for="">interval: </label>
+            <input type="number" id="interval" value="50">
+        </p>
+        <p>
+            <label for="">Iterations: </label>
+            <input type="number" id="limit" value="30">
+        </p>
+        <p>
+            <label for="">line width: </label>
+            <input type="number" id="lineWidth" value="1">
+        </p>
+        <p>
+            <label for="">clear: </label>
+            <input type="checkbox" id="clear">
+        </p>
+        <p>
+            <label for="">color: </label>
+            <input type="text" id="color" value="#ff00ff">
+        </p>
+        <p class="notice">* Make it empty to get random colors</p>
+        <p>
+            <button onclick="redraw(); return false">Redraw</button>
+        </p>
+    </form>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

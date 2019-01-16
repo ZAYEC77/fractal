@@ -56,8 +56,8 @@ function drawTriangle(counter, line, angle) {
 
 
     /*
-    	X = x1+(x2-x1)*cos(A)-(y2-y1)*sin(A)
-		Y = y1+(x2-x1)*sin(A)+(y2-y1)*cos(A)
+        X = x1+(x2-x1)*cos(A)-(y2-y1)*sin(A)
+        Y = y1+(x2-x1)*sin(A)+(y2-y1)*cos(A)
     */
     var line11 = rotateLine(line, angle);
     drawLine(ctx, line11);
@@ -118,8 +118,8 @@ function redraw() {
     var n = parseFloat(document.getElementById('n').value) || 2;
     interval = parseFloat(document.getElementById('interval').value) || 50;
     limit = parseFloat(document.getElementById('limit').value) || 30;
-    
-	ctx.lineWidth = parseInt(document.getElementById('lineWidth').value) || 1;
+
+    ctx.lineWidth = parseInt(document.getElementById('lineWidth').value) || 1;
 
     var tmpColor = document.getElementById('color').value;
 
@@ -136,4 +136,20 @@ function redraw() {
     drawTriangle(1, revertLine(line), -Math.PI / n);
 
     runDraw();
+
+}
+
+
+function requestFullScreen(element) {
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+    if (requestMethod) { // Native full screen.
+        requestMethod.call(element);
+    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+        var wscript = new ActiveXObject("WScript.Shell");
+        if (wscript !== null) {
+            wscript.SendKeys("{F11}");
+        }
+    }
 }
